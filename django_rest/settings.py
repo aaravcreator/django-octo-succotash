@@ -38,12 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'recipe'
+    'recipe',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -102,6 +104,15 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:5173", # react or vue frontend local
+    "http://localhost:5500",
+    "http://192.168.1.67:5500",
+    "http://127.0.0.1:9000",
+]
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 

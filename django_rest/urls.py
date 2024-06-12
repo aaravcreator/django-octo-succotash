@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import index,recipe,recipe_detail,RecipeView,RecipeDetailView
+
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index),
@@ -25,4 +29,4 @@ urlpatterns = [
     path('recipe_c/',RecipeView.as_view(),),
     path('recipe_c/<int:id>/',RecipeDetailView.as_view(),)
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
